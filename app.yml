@@ -36,8 +36,9 @@ Parameters:
     Type: String
   LambdaRate:
     Description: The rate (frequency) that determines when CloudWatch Events runs the rule that triggers the SiteBuilderFunction.
-    Default: rate(365 days)
+    Default: rate(5 minutes)
     AllowedValues:
+      - rate(5 minutes)
       - rate(8 hours)
       - rate(1 day)
       - rate(7 days)
