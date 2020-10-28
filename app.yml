@@ -403,12 +403,8 @@ Resources:
               OriginAccessIdentity: !Sub
                 - origin-access-identity/cloudfront/${id}
                 - id: !Ref originAccessIdentity
-          - DomainName: !Sub
-              - ${apiID}.execute-api.${AWS::Region}.amazonaws.com
-              - apiID: !Ref ServerlessRestApi
-            Id: Custom-LoginAPI
-            CustomOriginConfig:
-              OriginProtocolPolicy: https-only
+              CustomOriginConfig:
+                OriginProtocolPolicy: https-only
         CacheBehaviors:
           - TargetOriginId: S3-ResizedBucket
             TrustedSigners:
@@ -432,24 +428,6 @@ Resources:
             MaxTTL: 31536000
             ForwardedValues:
               QueryString: false
-          - TargetOriginId: Custom-LoginAPI
-            ViewerProtocolPolicy: https-only
-            PathPattern: 'Prod/*'
-            AllowedMethods:
-              - HEAD
-              - DELETE
-              - POST
-              - GET
-              - OPTIONS
-              - PUT
-              - PATCH
-            ForwardedValues:
-              QueryString: false
-              Headers:
-                - Accept
-                - Authorization
-                - Content-Type
-                - Referer
         Enabled: true
         DefaultRootObject: index.html
         CustomErrorResponses:
