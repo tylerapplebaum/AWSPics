@@ -63,7 +63,7 @@ You'll also need a domain whose CNAME DNS value you can update.
    ```
    <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:145266761615:applications~image-magick-lambda-layer>
    ```
-   Click Deploy (currently the orange button on the upper left).
+   Ensure your console session is in the desired region, and click Deploy (currently the orange button on the upper left).
 
    Then click on your Lambda - Layers and you will see a version ARN that looks like: 
    ```
