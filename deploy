@@ -13,6 +13,14 @@ fi
 output_template_file=$(mktemp)
 stackName="AWSPics"
 
+for function in resize site-builder; do
+  (
+    cd $function
+    docker build -t "cloudformation-lambda-$function" .
+    docker run "cloudformation-lambda-$function" > ../dist/lambda-$function.zip
+  )
+done
+
 # create the target S3 bucket if needed
 if ! aws s3 ls "s3://${s3Bucket}" > /dev/null
 then
