@@ -49,8 +49,8 @@ You'll also need a domain whose CNAME DNS value you can update.
    Default output format [None]:
    $ aws configure set preview.cloudfront true
    ```
-2. Create CloudFront Origin Access Identity, take note of the identity in the
-   response:
+2. Create CloudFront Origin Access Identity, save the ID in the
+   response for later use:
    ```
    aws cloudfront create-cloud-front-origin-access-identity \
                   --cloud-front-origin-access-identity-config \
@@ -61,7 +61,7 @@ You'll also need a domain whose CNAME DNS value you can update.
 
    While logged into AWS, go to this link:
    ```
-   <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:145266761615:applications~image-magick-lambda-layer>
+   https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:145266761615:applications~image-magick-lambda-layer
    ```
    Ensure your console session is in the desired region, and click Deploy (currently the orange button on the upper left).
 
@@ -120,7 +120,7 @@ It should contain the following info - minus the comments:
 
 ]
 ```
-
+Ensure you are in the AWSPics repo folder.
 You can then deploy the full stack using:
 
 ```bash
