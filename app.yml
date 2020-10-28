@@ -277,10 +277,6 @@ Resources:
         BlockPublicPolicy     : true
         IgnorePublicAcls      : true
         RestrictPublicBuckets : true
-      BucketEncryption: 
-        ServerSideEncryptionConfiguration: 
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       LifecycleConfiguration:
         Rules:
           - Id: CheaperS3StorageIntelligentTieringBecauseCachedOnCloudfront
@@ -307,17 +303,6 @@ Resources:
               AWS: !Sub
                 - arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${id}
                 - id: !Ref originAccessIdentity
-          - Sid: DenyUnEncryptedObjectUploads
-            Effect: Deny
-            Principal: "*"
-            Action:
-              - s3:PutObject
-            Resource:
-              - !Join ["", ["arn:aws:s3:::", !Ref resizedBucket, "/*"]]
-            Condition:
-              StringNotEquals:
-                "s3:x-amz-server-side-encryption":
-                  - "AES256"
     DependsOn: ResizedBucket
 
   #
