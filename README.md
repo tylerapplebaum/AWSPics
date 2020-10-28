@@ -1,6 +1,6 @@
-# AWSPics
+# AWSPics - unauthenticated
 
-> An AWS CloudFormation stack to run a serverless photo gallery
+An AWS CloudFormation stack to run a serverless photo gallery. This is a fork of [jpsim/AWSPics](https://github.com/jpsim/AWSPics) with the modifications to make the gallery public, and a few other minor tweaks.
 
 **Demo:** <https://link-goes-here>  
 
