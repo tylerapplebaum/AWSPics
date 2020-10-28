@@ -36,13 +36,14 @@ You'll also need a domain whose CNAME DNS value you can update.
 2. Run `sudo yum install docker`
 3. Run `sudo yum install git`
 4. Clone this repo: `git clone https://github.com/tylerapplebaum/AWSPics`
+5. Start `dockerd` as root in a screen session. `screen -S`, `sudo dockerd`, `screen ctrl+a d`
 
 ## Instructions
 
 1. Configure `aws-cli` (recommended to use `us-east-1`, see "Miscellaneous"
    below):
    ```
-   $ sudo aws configure
+   $ aws configure
    AWS Access Key ID [None]: AKIA...
    AWS Secret Access Key [None]: illx...
    Default region name [None]: us-east-1
@@ -52,7 +53,7 @@ You'll also need a domain whose CNAME DNS value you can update.
 2. Create CloudFront Origin Access Identity, save the ID in the
    response for later use:
    ```
-   sudo aws cloudfront create-cloud-front-origin-access-identity \
+   aws cloudfront create-cloud-front-origin-access-identity \
                   --cloud-front-origin-access-identity-config \
                   "CallerReference=$(cat /dev/urandom | base64 | base64 | head -c 14),Comment=AWSPics OAI"
    ```
@@ -126,7 +127,7 @@ You can then deploy the full stack using:
 ```bash
 # name of an S3 bucket for storing the Lambda code
 # bucket will be created if it doesn't already exist
-sudo ./deploy <unique_bucket_name_here>
+./deploy <unique_bucket_name_here>
 ```
 
 Any subsequent changes that you make to this code can be redeployed with the
