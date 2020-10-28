@@ -4,7 +4,7 @@ An AWS CloudFormation stack to run a serverless photo gallery. This is a fork of
 
 **Demo:** <https://gallery.us175.com/>
 
-Credits: @jpsim and @jsloan117
+Credits: [@jpsim](https://github.com/jpsim) and [@jsloan117](https://github.com/jsloan117)
 
 ## Goals
 
