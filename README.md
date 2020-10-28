@@ -10,8 +10,6 @@ Host a self-contained, declarative infrastructure,data-driven static photo galle
 
 ## Architecture
 
-![](assets/architecture.png)
-
 There are 6 main components:
 
 1. **CloudFront with restricted bucket access** to prevent downloading directly from S3.
