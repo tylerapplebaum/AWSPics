@@ -2,10 +2,7 @@
 
 > An AWS CloudFormation stack to run a serverless photo gallery
 
-**Demo:** <https://awspics.net>  
-**Credentials:** "username" / "password"
-
-![](assets/awspics.gif)
+**Demo:** <https://link-goes-here>  
 
 ## Goals
 
