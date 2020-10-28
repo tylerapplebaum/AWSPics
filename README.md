@@ -30,6 +30,12 @@ Requires that `aws-cli` and `docker` be installed.
 
 You'll also need a domain whose CNAME DNS value you can update.
 
+## Configuring a build environment on EC2
+
+1. Launch a t3a.small instance using the Amazon Linux 2 AMI (x64) and SSH in
+2. Run `sudo yum install docker`
+3. 
+
 ## Instructions
 
 1. Configure `aws-cli` (recommended to use `us-east-1`, see "Miscellaneous"
