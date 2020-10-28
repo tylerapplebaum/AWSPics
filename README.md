@@ -43,17 +43,16 @@ You'll also need a domain whose CNAME DNS value you can update.
 1. Configure `aws-cli` (recommended to use `us-east-1`, see "Miscellaneous"
    below):
    ```
-   $ aws configure
+   $ sudo aws configure
    AWS Access Key ID [None]: AKIA...
    AWS Secret Access Key [None]: illx...
    Default region name [None]: us-east-1
    Default output format [None]:
-   $ aws configure set preview.cloudfront true
    ```
 2. Create CloudFront Origin Access Identity, save the ID in the
    response for later use:
    ```
-   aws cloudfront create-cloud-front-origin-access-identity \
+   sudo aws cloudfront create-cloud-front-origin-access-identity \
                   --cloud-front-origin-access-identity-config \
                   "CallerReference=$(cat /dev/urandom | base64 | base64 | head -c 14),Comment=AWSPics OAI"
    ```
@@ -127,7 +126,7 @@ You can then deploy the full stack using:
 ```bash
 # name of an S3 bucket for storing the Lambda code
 # bucket will be created if it doesn't already exist
-./deploy <unique_bucket_name_here>
+sudo ./deploy <unique_bucket_name_here>
 ```
 
 Any subsequent changes that you make to this code can be redeployed with the
@@ -135,15 +134,14 @@ same command. CloudFormation will create a "changeset" to only update the
 modified resources.
 
 The first deployment should take about 30 minutes since there's a lot to set up.
-You'll also receive an email to approve the SSL certificate request, which you
+If you did not pre-create your ACM certificate and select DNS validation, you'll also receive an email to approve the SSL certificate request, which you
 should complete quickly, so that the rest of the deployment can proceed.
 
-You will want to update the frequency of the Cloudwatch Events Rule from its default setting at 365 days to something more appropriate to your needs. You can adjust this pre-deployment
-in the app.yml file or after the fact in the AWS Management console.
+**You will want to update the frequency of the Cloudwatch Events Rule from its default setting at 365 days to something more appropriate to your needs. You can adjust this pre-deployment
+in the app.yml file or after the fact in the AWS Management console.**
 
 ### Note on ImageMagick Layer for Lambda
 When Amazon deprecated Node.js 8.10, they removed ImageMagick from the Amazon Linux 2 AMIs that are required to run Node.js 10.x. Again, ImageMagick is no longer bundled with the Node.js 10.x runtime. This fix may also help with running on Node.js 12.x in the future. This provides a Lambda Layer (essentially a library) for your Lambda function that makes the existing code work with Node.js 10.x. 
-
 
 ##### Note on SSL Cert
 AWS Certificate Manager now supports SSL cert verification via DNS validation.
