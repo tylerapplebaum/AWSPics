@@ -139,8 +139,7 @@ The first deployment should take about 30 minutes since there's a lot to set up.
 If you did not pre-create your ACM certificate and select DNS validation, you'll also receive an email to approve the SSL certificate request, which you
 should complete quickly, so that the rest of the deployment can proceed.
 
-**You will want to update the frequency of the Cloudwatch Events Rule from its default setting at 365 days to something more appropriate to your needs. You can adjust this pre-deployment
-in the app.yml file or after the fact in the AWS Management console.**
+**The default timer for the site-builder Lambda is 5 minutes.**
 
 ### Note on ImageMagick Layer for Lambda
 When Amazon deprecated Node.js 8.10, they removed ImageMagick from the Amazon Linux 2 AMIs that are required to run Node.js 10.x. Again, ImageMagick is no longer bundled with the Node.js 10.x runtime. This fix may also help with running on Node.js 12.x in the future. This provides a Lambda Layer (essentially a library) for your Lambda function that makes the existing code work with Node.js 10.x. 
