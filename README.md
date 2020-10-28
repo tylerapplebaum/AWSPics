@@ -38,7 +38,7 @@ You'll also need a domain whose CNAME DNS value you can update.
 2. Run `sudo yum install docker`
 3. Run `sudo yum install git`
 4. Clone this repo: `git clone https://github.com/tylerapplebaum/AWSPics`
-5. Start `dockerd` as root in a screen session. `screen -S`, `sudo dockerd`, `screen ctrl+a d`
+5. Start `dockerd` as root in a [screen session](https://linuxize.com/post/how-to-use-linux-screen/). `screen -S`, `sudo dockerd`, to leave screen: `ctrl+a d`
 
 ## Instructions
 
