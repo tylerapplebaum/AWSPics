@@ -403,8 +403,6 @@ Resources:
               OriginAccessIdentity: !Sub
                 - origin-access-identity/cloudfront/${id}
                 - id: !Ref originAccessIdentity
-              CustomOriginConfig:
-                OriginProtocolPolicy: https-only
         CacheBehaviors:
           - TargetOriginId: S3-ResizedBucket
             TrustedSigners:
