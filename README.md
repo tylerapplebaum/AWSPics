@@ -34,7 +34,8 @@ You'll also need a domain whose CNAME DNS value you can update.
 
 1. Launch a t3a.small instance using the Amazon Linux 2 AMI (x64) and SSH in
 2. Run `sudo yum install docker`
-3. 
+3. Run `sudo yum install git`
+4. Clone this repo: `git clone https://github.com/tylerapplebaum/AWSPics`
 
 ## Instructions
 
@@ -97,7 +98,7 @@ It should contain the following info - minus the comments:
   "sourceBucket=original-images-here",
   // S3 bucket where resized images will be stored
   "resizedBucket=resized-images-here",
-  // Origin Access Identity from step 7
+  // Origin Access Identity from step 2
   "originAccessIdentity=EJG...",
   // how long the CloudFront access is granted for, in seconds
   // note that the cookies are session cookies, and will get deleted when the
@@ -106,7 +107,7 @@ It should contain the following info - minus the comments:
   // ------------------
   // Image Magick Lambda Layer ARN
   // - this is needed for ImageMagick to resize images in Node.js 10.x
-  // - from step 8 above
+  // - from step 3 above
   // - context above in README
   // ------------------
   "ImageMagickLayer=arn:aws:lambda:us-east-1:........:layer:image-magick:...",
