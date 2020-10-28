@@ -2,11 +2,13 @@
 
 An AWS CloudFormation stack to run a serverless photo gallery. This is a fork of [jpsim/AWSPics](https://github.com/jpsim/AWSPics) with the modifications to make the gallery public, and a few other minor tweaks.
 
-**Demo:** <https://link-goes-here>  
+**Demo:** <https://link-goes-here>
+
+Credits: @jpsim and @jsloan117
 
 ## Goals
 
-Host a self-contained, declarative infrastructure,data-driven static photo gallery to share pictures with the public, without needing to run, maintain (or pay for) servers.
+Host a self-contained, declarative infrastructure, data-driven static photo gallery to share pictures with the public, without needing to run, maintain (or pay for) servers.
 
 ## Architecture
 
