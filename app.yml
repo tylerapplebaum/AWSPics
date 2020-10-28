@@ -375,8 +375,6 @@ Resources:
                 - id: !Ref originAccessIdentity
         CacheBehaviors:
           - TargetOriginId: S3-ResizedBucket
-            TrustedSigners:
-              - self
             ViewerProtocolPolicy: https-only
             PathPattern: 'pics/resized/*'
             Compress: true
@@ -386,8 +384,6 @@ Resources:
             ForwardedValues:
               QueryString: false
           - TargetOriginId: S3-SourceBucket
-            TrustedSigners:
-              - self
             ViewerProtocolPolicy: https-only
             PathPattern: 'pics/original/*'
             Compress: true
@@ -407,8 +403,6 @@ Resources:
             ResponseCode: 404
         DefaultCacheBehavior:
           TargetOriginId: S3-WebBucket
-          TrustedSigners:
-            - self
           ForwardedValues:
             QueryString: false
           ViewerProtocolPolicy: redirect-to-https
