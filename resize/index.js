@@ -48,7 +48,7 @@ exports.handler = function(event, context) {
     if (err) {
       context.fail(err);
     } else {
-      var resizePairs = cross(["1200x750", "360x225"], images);
+      var resizePairs = cross(["1200x750", "600x375", "360x225"], images);
       async.eachLimit(resizePairs, 4, function(resizePair, cb) {
         var config = resizePair[0];
         var image = resizePair[1];
@@ -56,7 +56,7 @@ exports.handler = function(event, context) {
         var height = config.split('x')[1]
         var operation = im(image.buffer).autoOrient().resize(width, height, '^');
         if (config == "360x225") {
-          operation = operation.gravity('Center').crop(width, height);
+          operation = operation.gravity('North').crop(width, height);
         }
         operation.toBuffer(image.imageType, function(err, buffer) {
           if (err) {
