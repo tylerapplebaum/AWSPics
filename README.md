@@ -6,6 +6,10 @@ An AWS CloudFormation stack to run a serverless photo gallery. This is a fork of
 
 Credits: [@jpsim](https://github.com/jpsim) and [@jsloan117](https://github.com/jsloan117)
 
+## To-do
+
++ Update [app.yaml](https://github.com/tylerapplebaum/AWSPics/blob/1c5c724528a31c066d04be74c04e9816729ed929/app.yml#L38) to use a Matched event (s3 PutObject) input instead of a timer
+
 ## Goals
 
 Host a self-contained, declarative infrastructure, data-driven static photo gallery to share pictures with the public, without needing to run, maintain (or pay for) servers.
